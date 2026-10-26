@@ -71,7 +71,7 @@ function validateBody(schema) {
             convert: true,
             allowUnknown: false,
         })
-        
+
 function validateBody(schema) {
     return (req, res, next) => {
         const { error, value } = schema.validate(req.body, {
@@ -91,6 +91,11 @@ function validateBody(schema) {
                 }))
             )
         }
+
+        req.body = value
+        next()
+    }
+}
 
 
 
