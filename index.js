@@ -226,3 +226,15 @@ app.use((err, req, res, next) => {
     if (res.headersSent) {
         return next(err)
     }
+
+            return errorResponse(
+            res,
+            'Terjadi kesalahan pada server',
+            500
+        )
+    }
+)
+
+app.listen(port, () => {
+    console.log(`App running on port ${port}.`)
+})
